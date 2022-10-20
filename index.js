@@ -1,16 +1,28 @@
-let box1 = 'Hello';
+let num = 0.1 + 0.2;
+console.log(num);
 
-const box2 = true;
+let num1 = NaN;
 
-// console.log(box1);
-// console.log(box2);
+let a = 1 + 2;
+let b = 2 - 1;
+let c = 2 * 2;
+let d = 4 / 2;
 
-box1 = 10;
-console.log(box1);
+let notAllowed = 5 / 0;
+console.log(notAllowed);
+let divTo0 = 4 / Infinity;
+console.log(divTo0);
 
-// box2 = 15; константи перевизначати заборонено!
-console.log(box2);
+/*
+Складати числа
+Зклеювати строки (конкатенація)
+*/
 
-const box = 'USER_AVATAR_URL';
-box = 123;
-let box3;
+let newLine = 'Hello' + ' ' + 'you';
+console.log(newLine);
+
+newLine = 5 + 'Hello';
+console.log(newLine);
+
+newLine = 1 + '1';
+console.log(newLine);
