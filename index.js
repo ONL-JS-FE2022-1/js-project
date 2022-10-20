@@ -1,28 +1,36 @@
-let num = 0.1 + 0.2;
-console.log(num);
-
-let num1 = NaN;
-
-let a = 1 + 2;
-let b = 2 - 1;
-let c = 2 * 2;
-let d = 4 / 2;
-
-let notAllowed = 5 / 0;
-console.log(notAllowed);
-let divTo0 = 4 / Infinity;
-console.log(divTo0);
-
 /*
-Складати числа
-Зклеювати строки (конкатенація)
+Перетворення (приведення) типу даних
 */
 
-let newLine = 'Hello' + ' ' + 'you';
-console.log(newLine);
+let num5 = 6 - '1';
+/* 
+Неявне перетворення типу даних
+(Неявное преобразование типа данніх)
+*/
+console.log(num5);
 
-newLine = 5 + 'Hello';
-console.log(newLine);
+let thisIsNumber = Number('45'); // явне перетворювання
+let thisIsNumber2 = '45' - 0; // неявне (автоматичне)
 
-newLine = 1 + '1';
-console.log(newLine);
+let booleanNumber = true + 1;
+console.log(booleanNumber);
+
+/*
+Boolean автоматично приводиться до типу Number
+true = 1
+false = 0
+*/
+
+/* String */
+
+let str = String(45);
+let str2 = null + '';
+console.log(str2);
+
+let notAnumber = 2 * 'Hello';
+console.log(notAnumber);
+Number('Hello');
+
+/* typeof */
+let box = true;
+console.log(typeof thisIsNumber);
