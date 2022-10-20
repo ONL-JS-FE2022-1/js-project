@@ -1,36 +1,11 @@
-/*
-Перетворення (приведення) типу даних
-*/
+console.log();
+// () - оператор виклику функції
 
-let num5 = 6 - '1';
-/* 
-Неявне перетворення типу даних
-(Неявное преобразование типа данніх)
-*/
-console.log(num5);
+const sum = (2 + 2) * 6;
+console.log(sum);
 
-let thisIsNumber = Number('45'); // явне перетворювання
-let thisIsNumber2 = '45' - 0; // неявне (автоматичне)
-
-let booleanNumber = true + 1;
-console.log(booleanNumber);
-
-/*
-Boolean автоматично приводиться до типу Number
-true = 1
-false = 0
-*/
-
-/* String */
-
-let str = String(45);
-let str2 = null + '';
-console.log(str2);
-
-let notAnumber = 2 * 'Hello';
-console.log(notAnumber);
-Number('Hello');
-
-/* typeof */
-let box = true;
-console.log(typeof thisIsNumber);
+const hello = "Маша сказала "Привіт""; // привіт сприймається як оепратор/команда/функція яку JS не знає
+const hello2 = 'Маша сказала "Привіт"'; // різні типи лапок
+const hello3 = "Маша сказала \"Привіт\""; // Екрановані символи
+const hello4 = 'Маша сказала \n "Привіт"';
+console.log(hello4);
