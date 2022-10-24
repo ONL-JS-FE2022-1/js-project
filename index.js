@@ -1,11 +1,37 @@
-// alert('Hello'); // вікно з повідомленням
+/* Об'явлення функції
 
-let a = Number(prompt('Введіть перше число')); // Вікно з формой для вводу певного рядка
-let b = Number(prompt('Введіть друге число'));
-let result = a + b;
+function ім'я_функції(argument1, argument2) {
+    тіло функції
+}
 
-if(Number.isNaN(result)) {
-    console.log('Ти не правий, введи число!');
-} else {
+*/
+
+function greetingUser(userName) {
+    console.log('Привіт, ', userName);
+}
+
+/* Використання функції */
+greetingUser('Alex'); // аргумент функції
+greetingUser('Queen');
+greetingUser('Bly sky');
+
+/*
+Створіть функцію, яка приймає число, додає до нього 5 і виводить результат на консоль
+*/
+
+function addFiveToNumber(number) {
+    let result = Number(number) + 5;
     console.log(result);
 }
+
+addFiveToNumber(5);
+
+/* Функція, яка складає 2 числа і повертає результат розрахунку */
+
+function addTwoNumbers(num1, num2) {
+    const result = num1 + num2;
+    return result;
+    // return num1 + num2;
+}
+let functionResult = addTwoNumbers(2, 5);
+console.log(functionResult);
