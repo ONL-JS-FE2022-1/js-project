@@ -1,7 +1,3 @@
-let number = prompt('Введіть число');
-console.log(number, typeof number);
-
-
 /* 
 
 1. Напишіть функцію, яка повертає два числа і повертає те, що більше
