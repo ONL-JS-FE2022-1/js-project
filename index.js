@@ -1,32 +1,22 @@
-/* 
-Об'явлена функція - Function Declaration
+let num1 = Number(prompt('Введіть перше число'));
+let num2 = Number(prompt('Введіть друге число'));
 
-function ім'я_функції(argument1, argument2) {
-    тіло функції
+function addTwoNumbers(arg1, arg2) {
+    num2 = 5;
+    console.log(num2);
+    
+    // const result = arg1 + arg2;
+    // return result;
 }
 
-ім'я_функції(арг1, арг2);
+addTwoNumbers(num1, num2);
 
-*/
+console.log(num2);
 
+/* Scope - область видимости
+(це всі наші змінні, об'єкти і.т.д., які нам доступні)
 
+Local Scope (локальна область видимості) - це всі наші змінні, об'єкти і.т.д. ВСЕРЕДИНІ нашої функції
 
-
-/* Функціональний вираз - Function Expression
-
-const ім'я_функції = function (arg1, arg2) {
-    тіло функції
-}
-
-ім'я_функції(арг1, арг2);
-
-*/
-
-/*
-Стрілкова функція - Arrow Function
-
-const ім'я_функції = (arg1, arg2) => {
-    тіло функції
-}
-
+Global Scope (глобальна область видимості) - це всі наші змінні, об'єкти і.т.д. з поточного коду
 */
