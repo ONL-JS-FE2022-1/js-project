@@ -1,56 +1,45 @@
-/* 
+/*
 
-1. Напишіть функцію, яка повертає два числа і повертає те, що більше
+Вася працює програмістом і отримує 50 $ за кожні 100 рядків коду. 
+За кожне третє запізнення Васю штрафують на 20$.
 
-2. Напишіть іншу функцію, яка знаходить середнє арифметичне з двох чисел.
-Середнє арифметичеґне значення = одне число + друге число / кількість чисел
+Реалізувати меню:
 
-3. Функція, яка приймає одне число і визначає, чи є воно парним
+- Користувач вводить бажаний дохід Васі та кількість запізнень. 
+Порахувати скільки строк коду йому треба написати
+
+- Користувач вводить кількість рядків коду, написану Васею та бажаний обсяг зарплати. 
+Порахувати, скільки разів Вася може запізнитися
+
+- користувач вводить кількість рядків коду та кількість запізнень. 
+Визначити, скільки грошей заплатять Васі та чи заплатять взагалі.
 
 */
 
-/* 1 задача
-*/
+const salary100 = 50;
+const penalty = 20;
 
-let value1 = Number(prompt('Введіть перше число'));
-let value2 = Number(prompt('Введіть друге число'));
+function howCountLines(expectedSalary, lateCount) {
+    return (Math.floor(lateCount / 3) * penalty + expectedSalary) / salary100 * 100;
+}
+console.log(howCountLines(2000, 9));
 
-function getBigger(num1, num2) {
-    if(num1 > num2) {
-        return num1;
-    } else if (num2 > num1) {
-        return num2;
+function howLates(expectedSalary, rowsCount) {
+    const result = Math.floor((rowsCount / 100 * salary100 - expectedSalary) / penalty * 3);
+    if (result > 0) {
+        return result;
     } else {
-        return 'Что-то работает не так!';
+        return 0;
     }
 }
+console.log(howLates(500, 5000));
 
-let result = getBigger(value1, value2);
-console.log(result);
-
-/* 2 задача
-*/
-
-function average(num1, num2) {
-    return (num1 + num2) / 2;
-    // let avg = (num1 + num2) / 2;
-    // return avg;
-}
-
-let result2 = average(value1, value2);
-console.log(result2);
-
-/* 3 задача
-*/
-
-function isEven(num) {
-    if(num % 2 === 0) {
-        return true;
-    } else if (num % 2 > 0) {
-        return false;
+function howSalary(rowsCount, lateCount) {
+    const result = rowsCount / 100 * salary100 - Math.floor(lateCount/3) * penalty; 
+    if (result > 0) {
+        return result;
     } else {
-        return 'Что-то работает не так!';
+        return 0;
     }
 }
-
-console.log(isEven(9));
+console.log(howSalary(5000, 4));
