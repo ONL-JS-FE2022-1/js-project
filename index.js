@@ -1,45 +1,45 @@
 /*
+if (умова) {
+    оператори...
+    блок коду, який буде виконуватись, якщо умова = true
+} else {
+    оператори....
+    блок коду, який буде виконуватись, якщо умова = false
+}
+*/
 
-Вася працює програмістом і отримує 50 $ за кожні 100 рядків коду. 
-За кожне третє запізнення Васю штрафують на 20$.
+/* тернарний оператор
 
-Реалізувати меню:
-
-- Користувач вводить бажаний дохід Васі та кількість запізнень. 
-Порахувати скільки строк коду йому треба написати
-
-- Користувач вводить кількість рядків коду, написану Васею та бажаний обсяг зарплати. 
-Порахувати, скільки разів Вася може запізнитися
-
-- користувач вводить кількість рядків коду та кількість запізнень. 
-Визначити, скільки грошей заплатять Васі та чи заплатять взагалі.
+let result = умова ? операнд1 : операнд2
 
 */
 
-const salary100 = 50;
-const penalty = 20;
+/*
+Маркетплейс знаходиться у Шотландії.
+Серед товарів є алкоголь та тютюнові вироби.
+Реалізувати обмеження: алкоголь та тютюнові вироби продаються тільки повнолітнім.
+*/
 
-function howCountLines(expectedSalary, lateCount) {
-    return (Math.floor(lateCount / 3) * penalty + expectedSalary) / salary100 * 100;
-}
-console.log(howCountLines(2000, 9));
+const age = 14;
+let isAdult = age < 16 ? 'not adult' : 'adult';
+console.log(isAdult);
 
-function howLates(expectedSalary, rowsCount) {
-    const result = Math.floor((rowsCount / 100 * salary100 - expectedSalary) / penalty * 3);
-    if (result > 0) {
-        return result;
-    } else {
-        return 0;
-    }
-}
-console.log(howLates(500, 5000));
+/*
+(булева змінна login - true/false)
+Створіть змінну viewMode, яка у випадку авторизованного користувача має містити рядок 'authMode',
+а у випадку неавторизованого - 'unauth'
+*/
 
-function howSalary(rowsCount, lateCount) {
-    const result = rowsCount / 100 * salary100 - Math.floor(lateCount/3) * penalty; 
-    if (result > 0) {
-        return result;
-    } else {
-        return 0;
-    }
-}
-console.log(howSalary(5000, 4));
+let login = false;
+let viewMode = login ? 'authMode' : 'unAuth';
+console.log(viewMode);
+
+/*
+Якщо число входить в діапазон від 6 до 12, то у змінній результат має міститись рядок 'in'.
+В протилежному випадку - рядок 'out'.
+Підказка: &&
+*/
+
+let number = 29;
+let result = (number >= 6 && number <= 12) ? 'in' : 'out';
+console.log(result);
