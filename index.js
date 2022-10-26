@@ -1,38 +1,21 @@
-function sum(a, b) {
+function sum(a, b) { // детермінована функція
     return a + b;
 }
 
-function sub(a, b) {
-    return a - b;
-}
-
-function multy(a, b) {
-    return a * b;
-}
-
-function div(a, b) {
-    return a / b;
-}
-
-console.log(sum); // sum = 0X0000076
-
-const superFunction = sum;
 sum(2, 2); // 4
-superFunction(2, 4); // 6
+sum(2, 2); // 4
 
 /*
-High Order Function (HOF) - Фунція вищого порядку - це функція, яка приймає іншу функцію в якості аргумента
-
-Callback - Коллбек (функція зворотнього виклику) - це функція, ЯКУ передали як аргумент іншій функції
+Детермінована функція - це функція, яка при одних і тих же аргументах ЗАВЖДИ повертає один і той самий результат
 */
 
-function doingSomething(arg1, arg2, fun) { // HOF
-    let result = fun(arg1, arg2);
-    return result;
+let variable = 5;
+function addToNumberSomeVariable(a) { // недетермінована функція
+    return a + variable;
 }
 
-console.log(
-    doingSomething(2, 4, function (a, b) {
-        return a * b;
-    })
-);
+addToNumberSomeVariable(5); // 10
+
+variable = 20;
+
+addToNumberSomeVariable(5); // 25
