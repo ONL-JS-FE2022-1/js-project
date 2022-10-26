@@ -1,56 +1,3 @@
-// const number = Number(prompt('Введіть число'));
-
-// if (number % 5 === 0) {
-//     console.log('ділиться на 5');
-// } else if (number % 3 === 0) {
-//     console.log('ділиться на 3');
-// } else if (number % 2 === 0) {
-//     console.log('ділиться на 2');
-// }
-
-/*
-
-switch(вираз) {
-    case значення_виразу: робимо щось одне;
-    case значення2_виразу: робимо щось інше;
-    case значення3_виразу: робимо щось інше;
-    default: робимо щось, якщо інші значення не підійшли
-}
-
-*/
-
-let monthNumber = 15;
-
-switch (monthNumber) {
-  case 1:
-  case 2:
-  case 12: {
-    console.log('зима')
-    break
-  }
-  case 3:
-  case 4:
-  case 5: {
-    console.log('весна')
-    break
-  }
-  case 6:
-  case 7:
-  case 8: {
-    console.log('літо')
-    break
-  }
-  case 9:
-  case 10:
-  case 11: {
-    console.log('осінь')
-    break
-  }
-  default: {
-    console.log('Введи число від 1 до 12')
-  }
-}
-
 /* 
 Задача 1
 
@@ -65,6 +12,34 @@ prompt
 Вивести в консоль "Сік" чи "Вода" чи............
 Зробити через switch-case
 */
+
+const userChoice = prompt('Оберіть напій: \n1 - Сік \n2 - Вода \n3 - Кава \n4 - Чай \n5 - Лимонад');
+
+switch(userChoice) {
+    case '1': {
+        console.log('Сік');
+        break;
+    }
+    case '2': {
+        console.log('Вода');
+        break;
+    }
+    case '3': {
+        console.log('Кава');
+        break;
+    }
+    case '4': {
+        console.log('Чай');
+        break;
+    }
+    case '5': {
+        console.log('Лимонад');
+        break;
+    }
+    default: {
+        console.log('Оберіть щось із меню!');
+    }
+}
 
 /*
 Задача 2
@@ -85,3 +60,51 @@ prompt
 Весь калькулятор - це теж окрема функція, роль якої 
 - спитати у користувача два числа і дію і повернути йому результат у якості alert
 */
+
+function sum(a, b) {
+    return a + b;
+}
+
+function sub(a, b) {
+    return a - b;
+}
+
+function multy(a, b) {
+    return a * b;
+}
+
+function div(a, b) {
+    return a / b;
+}
+
+function calculator() {
+    const a = Number(prompt('Введіть перше число:'));
+    const b = Number(prompt('Введіть друге число:'));
+    const action = prompt('Введіть потрібну дію: +, -, *, /');
+
+    let result;
+    switch(action) {
+        case '+': {
+            result = sum(a, b);
+            break;
+        }
+        case '-': {
+            result = sub(a, b);
+            break;
+        }
+        case '*': {
+            result = multy(a, b);
+            break;
+        }
+        case '/': {
+            result = div(a, b);
+            break;
+        }
+        default: {
+            result = 'Введіть правильну дію'
+        }
+    }
+    console.log(result);
+}
+
+calculator();
