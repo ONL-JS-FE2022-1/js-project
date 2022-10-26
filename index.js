@@ -1,118 +1,65 @@
-function ymivanie() {
-    // ............
-    console.log('ymivanie');
+// Loops - Цикли
+
+// while (умова) {
+   // код повторюється, поки умова = true
+// }
+
+let iterator = 0;
+/* Прохід циклу (коло) називається ітерація */
+while(iterator < 10) {
+    console.log(iterator);
+    iterator++;
 }
 
-function chistkaZybov() {
-    // ............
-    console.log('chistka zybov');
+/* "Валідація значень" */
+/* break зупиняє цикл */
+while (true) {
+    console.log('Не вірно!');
+    break;
 }
 
-function yxodZaKozhey() {
-    // ............
-    console.log('yxodZaKoshey');
-}
+/* Задача: зробити 10 повторів циклу, вивести на консоль парні значення лічильника */
 
-function coding() {
-    // ............
-    console.log('coding');
-}
-
-function sleep() {
-    // ............
-    console.log('sleep')
-}
-
-function goToWork() {
-    // ............
-    console.log('goToWork')
-}
-
-function goToHome() {
-    // ............
-    console.log('goToHome')
-}
-
-function zavtrak() {
-    // ............
-    console.log('zavtrak')
-}
-
-function education() {
-    // ............
-    console.log('education')
-}
-
-function obed() {
-    // ............
-    console.log('obed')
-}
-
-function yzhin() {
-    // ............
-    console.log('yzhin')
-}
-
-function progulka() {
-    // ............
-    console.log('progulka')
-}
-
-function vanna() {
-    // ............
-    console.log('vanna')
-}
-
-function todo(timeOfDay) { // HOF
-    switch(timeOfDay) {
-        case 'morning': {
-            console.group('morning');
-
-            ymivanie();
-            chistkaZybov();
-            yxodZaKozhey();
-            progulka();
-            zavtrak();
-
-            console.groupEnd();
-
-            break;
-        }
-        case 'obed': {
-            console.group('obed');
-
-            goToWork();
-            coding();
-            obed();
-            coding();
-            progulka();
-            goToHome();
-
-            console.groupEnd();
-
-            break;
-        }
-        case 'evening': {
-            console.group('evening');
-
-            education();
-            yzhin();
-            coding();
-            vanna();
-            ymivanie();
-            yxodZaKozhey();
-            sleep();
-
-            console.groupEnd();
-
-            break;
-        }
-        default: {
-            console.log('Вася не в духе!. Введите нормальное время дня!!!')
-        } 
+let i = 0;
+while (i < 10) {
+    if(i % 2 === 0) {
+        console.log(i);
     }
+    i++;
 }
 
-todo('morning');
-todo('obed');
-todo('evening');
+/*
+Дан пароль = qwerty1234
+
+Запитуйте у користувача через prompt, поки він не співпаде з тим, що лежить в змінній 
+*/
+
+let pass = 'qwerty1234';
+
+// варіант 1
+// while(true) {
+//     let userPass = prompt('Введіть свій пароль');
+//     if(userPass === pass) {
+//         console.log('Пароль вірний!')
+//         break;
+//     }
+// }
+
+// варіант 2
+// let userPass2 = prompt('Введіть свій пароль');
+// while(userPass2 !== pass) {
+//     userPass2 = prompt('Введіть свій пароль ще раз!');
+// }
+
+
+/* do {
+    тут блок коду, який буде повторювано виконуватись
+} while(умова)
+*/ 
+
+let password = '1234';
+let promptPassword = null;
+
+do {
+   promptPassword = prompt('Введіть свій пароль');
+} while (promptPassword !== password)
