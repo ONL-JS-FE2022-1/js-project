@@ -18,8 +18,9 @@ cat.sleep = undefined; // BAD PRACTICE
 delete cat.sleep; // Good practice
 
 // Adding properties
-cat.girlfriend = 'Murka';
+cat.girlfriend = {
+    name: 'Murka',
+    color: 'black',
+    age: 1
+};
 
-/*
-Визначте у себе кота, опишіть його властивості і декілька методів - бігти, спати, нявкати
-*/
