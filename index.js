@@ -1,65 +1,34 @@
-// Loops - Цикли
-
-// while (умова) {
-   // код повторюється, поки умова = true
-// }
-
-let iterator = 0;
-/* Прохід циклу (коло) називається ітерація */
-while(iterator < 10) {
-    console.log(iterator);
-    iterator++;
-}
-
-/* "Валідація значень" */
-/* break зупиняє цикл */
-while (true) {
-    console.log('Не вірно!');
-    break;
-}
-
-/* Задача: зробити 10 повторів циклу, вивести на консоль парні значення лічильника */
-
-let i = 0;
-while (i < 10) {
-    if(i % 2 === 0) {
-        console.log(i);
-    }
-    i++;
-}
-
 /*
-Дан пароль = qwerty1234
-
-Запитуйте у користувача через prompt, поки він не співпаде з тим, що лежить в змінній 
+for (початковий стан; умова, за якої цикл повторюється; зміна лічильника на кожній ітерації) {
+    блок коду, який повторюється
+}
 */
 
-let pass = 'qwerty1234';
-
-// варіант 1
-// while(true) {
-//     let userPass = prompt('Введіть свій пароль');
-//     if(userPass === pass) {
-//         console.log('Пароль вірний!')
-//         break;
-//     }
+// for (let i = 0; i < 10; i = i + 3) {
+//     console.log(i);
 // }
 
-// варіант 2
-// let userPass2 = prompt('Введіть свій пароль');
-// while(userPass2 !== pass) {
-//     userPass2 = prompt('Введіть свій пароль ще раз!');
-// }
+/*
+Задача: написати функцію, яка обчислює факторіал переданого числа, результат роботи функції ми виводимо в консоль
 
+Факторіал - це
+5! = 1*2*3*4*5 || 5*4*3*2*1
+10! = 1*2*3*4*5*6*7*8*9*10
+*/
 
-/* do {
-    тут блок коду, який буде повторювано виконуватись
-} while(умова)
-*/ 
+function factorial(num) {
+    if(num < 0) {
+        return null;
+    }
+    if(num === 0 || num === 1) {
+        return 1;
+    }
 
-let password = '1234';
-let promptPassword = null;
+    let result = 1;
+    for (let i = 1; i <= num; i++) {
+        result *= i; // result = result * i;
+    }
+    return result;
+}
 
-do {
-   promptPassword = prompt('Введіть свій пароль');
-} while (promptPassword !== password)
+console.log(factorial(10));
