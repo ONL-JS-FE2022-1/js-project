@@ -1,34 +1,26 @@
 /*
-for (початковий стан; умова, за якої цикл повторюється; зміна лічильника на кожній ітерації) {
-    блок коду, який повторюється
-}
+Objects
+
+Об'єкти мають:
+- властивості
+- методи
+
 */
 
-// for (let i = 0; i < 10; i = i + 3) {
-//     console.log(i);
-// }
-
-/*
-Задача: написати функцію, яка обчислює факторіал переданого числа, результат роботи функції ми виводимо в консоль
-
-Факторіал - це
-5! = 1*2*3*4*5 || 5*4*3*2*1
-10! = 1*2*3*4*5*6*7*8*9*10
-*/
-
-function factorial(num) {
-    if(num < 0) {
-        return null;
-    }
-    if(num === 0 || num === 1) {
-        return 1;
-    }
-
-    let result = 1;
-    for (let i = 1; i <= num; i++) {
-        result *= i; // result = result * i;
-    }
-    return result;
+let obj = {
+  color: 'red',
+  fontSize: 2
 }
 
-console.log(factorial(10));
+let bulb = {
+  producer: 'Philips',
+  lightness: 200,
+  power: '200W',
+  cap: 'small',
+  on: function() {
+    return 'The light on!'
+  }
+}
+
+console.log(bulb.lightness);
+console.log(bulb.on());
