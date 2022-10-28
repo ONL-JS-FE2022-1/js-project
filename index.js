@@ -25,3 +25,54 @@ cat3.boyfriend = 'Tyzik';
 
 Зробіть декілька країн
 */
+
+function Country(name, population, area) {
+    this.name = name;
+    this.population = population;
+    this.area = area;
+
+    this.getDensity = function() {
+        return this.population / this.area;
+    }
+}
+
+const Ukraine = new Country('Ukraine', 43810000, 603700);
+
+/*
+Створити функцію-конструктор авто, яке має:
+- назву
+- максимальну швидкість
+- поточну швидкість // в момент створення, поточна швидкість = 0
+- метод прискорення (accelerate) - приймає в якості аргумента певне прискорення // прискорення не може бути більше за максимальну швидкість
+- метод сповільнення (deaccelerate) - приймає в якості аргумента певне сповільнення // сповільнення не може бути менше за 0
+- метод зупинки (stop)
+*/
+
+function Auto(name, maxSpeed) {
+    this.name = name;
+    this.maxSpeed = maxSpeed;
+    this.speed = 0;
+
+    this.accelerate = function(accelValue) {
+        this.speed = this.speed + accelValue;
+        if(this.speed > this.maxSpeed) {
+            this.speed = this.maxSpeed;
+        }
+        return this.speed;
+    }
+
+    this.deaccelerate = function(deaccelValue) {
+        this.speed = this.speed - deaccelValue;
+        if(this.speed < 0) {
+            this.speed = 0;
+        }
+        return this.speed;
+    }
+
+    this.stop = function() {
+        this.speed = 0;
+        return this.speed;
+    }
+}
+
+const auto1 = new Auto('Lanos', 220);
