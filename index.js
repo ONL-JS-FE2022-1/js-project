@@ -1,10 +1,11 @@
-const user = {
-    name: 'Humpty Dumty'
-}
+// splice
+// splice(M, L, ) - мутує (змінює) початковий масив, видаляючи (та) додаючи нові елементи
 
-user.isBroken = false;
+const arr = [1,2,3,4,5];
 
-const egg = "Humpty Dumpty";
-egg.isBroken = false;
-console.log(egg); // Humpty Dumpty
-console.log(egg.isBroken); // undefined
+// console.log(arr.splice(2,2));
+// console.log(arr);
+
+console.log(arr);
+console.log(arr.splice(1, 0, 'hello', 456));
+console.log(arr);
