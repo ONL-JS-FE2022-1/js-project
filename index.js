@@ -1,31 +1,27 @@
-/// sort
+// filter
 
-const array = [5,3,9,21,5,1,2,4,56];
+const array = [5, 3, -9, 21, -5, 1, -2, 4];
 
-function compareFunction(a, b) {
-    if (b > a) {
-        return -1;
-    } else {
-        return 1;
-    }
+// Створити новий масив, в який попадуть тільки ті елемнети зі старого масиву, які більше за 0
+
+function filterFunc(item) {
+    // if(item > 0) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+    return item > 0;
 }
 
-/* returning:
--1 - спочатку a, потім b
-0 - елементи залишаються незмінними
-1 - спочатку b, потім a
-
-a і b два сусідні елементи
-*/
-
-array.sort(compareFunction);
-
-console.log(array);
-
-const arrayWords = ['bbb', 'abb', 'aaa', 'aba'];
-arrayWords.sort();
-//console.log(arrayWords);
-
 /*
-Написати функцію-компаратор, яка відсортує масив у ЗВОРОТНЬОМУ порядку
+Функція приймає 1 аргумент - кожен елемент початкового масиву
+Функція повертає true, якщо елемент підходить (пройшов перевірку) і і має увійти в новий масив
+false - якщо елемент не підходить
 */
+
+const filteredArray = array.filter(filterFunc);
+
+/* 
+Створити новий масив, в який увійдуть тільки парні елементи початкового масива
+*/
+// return item % 2 === 0;
