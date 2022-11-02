@@ -1,27 +1,20 @@
-// filter
+// reduce
+// зводить якусь кількість елементів до одного результуючого знаечння
 
-const array = [5, 3, -9, 21, -5, 1, -2, 4];
+const array = [2, 3, 1, 2, 34, 21];
 
-// Створити новий масив, в який попадуть тільки ті елемнети зі старого масиву, які більше за 0
-
-function filterFunc(item) {
-    // if(item > 0) {
-    //     return true;
-    // } else {
-    //     return false;
-    // }
-    return item > 0;
+function reducer(accumulator, item) {
+    return accumulator + item;
 }
 
-/*
-Функція приймає 1 аргумент - кожен елемент початкового масиву
-Функція повертає true, якщо елемент підходить (пройшов перевірку) і і має увійти в новий масив
-false - якщо елемент не підходить
-*/
+const sum = array.reduce(reducer, 0);
 
-const filteredArray = array.filter(filterFunc);
+// function reduce (accumulatorNumber, array) {
+//   let accumulator = accumulatorNumber
+//   for (let i = 0; i < array.length; i++) {
+//     accumulator = accumulator + array[i];
+//   }
+//   return accumulator;
+// }
 
-/* 
-Створити новий масив, в який увійдуть тільки парні елементи початкового масива
-*/
-// return item % 2 === 0;
+// const sum = reduce(0, array);
