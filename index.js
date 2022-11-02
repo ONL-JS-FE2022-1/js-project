@@ -1,11 +1,31 @@
-/*
-новий масив, кожен елемент якого = елемент зі старого зі старого масиву * 2
+/// sort
+
+const array = [5,3,9,21,5,1,2,4,56];
+
+function compareFunction(a, b) {
+    if (b > a) {
+        return -1;
+    } else {
+        return 1;
+    }
+}
+
+/* returning:
+-1 - спочатку a, потім b
+0 - елементи залишаються незмінними
+1 - спочатку b, потім a
+
+a і b два сусідні елементи
 */
 
-const array = [2,3,4,5,1,2];
+array.sort(compareFunction);
 
-const newArray = array.map((item) => {
-    return item * 2;
-}).reverse().join(','); // chaining
+console.log(array);
 
-console.log(newArray);
+const arrayWords = ['bbb', 'abb', 'aaa', 'aba'];
+arrayWords.sort();
+//console.log(arrayWords);
+
+/*
+Написати функцію-компаратор, яка відсортує масив у ЗВОРОТНЬОМУ порядку
+*/
