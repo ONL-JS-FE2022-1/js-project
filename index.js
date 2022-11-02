@@ -1,20 +1,59 @@
-// reduce
-// зводить якусь кількість елементів до одного результуючого знаечння
+const catArray = [
+    {
+        name: 'Murzik',
+        color: 'black',
+        weight: 3,
+        age: 2
+    },
+    {
+        name: 'Murka',
+        color: 'grey',
+        weight: 5,
+        age: 3
+    },
+    {
+        name: 'Barsik',
+        color: 'red',
+        weight: 2,
+        age: 1
+    },
+    {
+        name: 'Cookie',
+        color: 'brown',
+        weight: 5,
+        age: 2
+    },
+    {
+        name: 'Stus',
+        color: 'grey',
+        weight: 2,
+        age: 5
+    },
+    {
+        name: 'Fagot',
+        color: 'black',
+        weight: 5,
+        age: 3
+    },
+    {
+        name: 'Kit',
+        color: 'pink',
+        weight: 2,
+        age: 1
+    },
+]
 
-const array = [2, 3, 1, 2, 34, 21];
+// 1. Відсортувати котів за вагою на збільшення
+catArray.sort((cat1, cat2) => {
+    if(cat1.weight < cat2.weight) {
+        return -1;
+    } else {
+        return 1;
+    }
+});
 
-function reducer(accumulator, item) {
-    return accumulator + item;
-}
-
-const sum = array.reduce(reducer, 0);
-
-// function reduce (accumulatorNumber, array) {
-//   let accumulator = accumulatorNumber
-//   for (let i = 0; i < array.length; i++) {
-//     accumulator = accumulator + array[i];
-//   }
-//   return accumulator;
-// }
-
-// const sum = reduce(0, array);
+/* returning:
+-1 -> cat1, cat2
+0 -> всі на місці
+1 -> cat2, cat1
+*/
