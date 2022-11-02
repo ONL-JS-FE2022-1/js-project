@@ -1,123 +1,36 @@
-/* TASK 3
-
-Дан масив об'єктів
-const users = [
-    {
-        name: 'John',
-        lastName: 'Doe',
-        age: 18,
-        email: 'meil@com'
-    },
-    {
-        name: 'Jane',
-        lastName: 'Doe',
-        age: 20,
-        email: 'meil@com'
-    },
-    {
-        name: 'Josh',
-        lastName: 'Doe',
-        age: 17,
-        email: 'meil@com'
-    },
-    {
-        name: 'Jake',
-        lastName: 'Doe',
-        age: 21,
-        email: 'meil@com'
-    },
-    {
-        name: 'Jackson',
-        lastName: 'Doe',
-        age: 17,
-        email: 'meil@com'
-    },
-]
-
-Всім користувачам додати поле isSubscribed = false
-
-*/
-
-const users = [
-    {
-        name: 'John',
-        lastName: 'Doe',
-        age: 18,
-        email: 'meil@com'
-    },
-    {
-        name: 'Jane',
-        lastName: 'Doe',
-        age: 20,
-        email: 'meil@com'
-    },
-    {
-        name: 'Josh',
-        lastName: 'Doe',
-        age: 17,
-        email: 'meil@com'
-    },
-    {
-        name: 'Jake',
-        lastName: 'Doe',
-        age: 21,
-        email: 'meil@com'
-    },
-    {
-        name: 'Jackson',
-        lastName: 'Doe',
-        age: 17,
-        email: 'meil@com'
-    },
-]
-
-// TASK 3
-// variant 1
-function addSubscribeField(item) {
-    item.isSubscribed = false;
-}
-//users.forEach(addSubscribeField);
-
-// variant 2
-// users.forEach((item) => {
-//     item.isSubscribed = false;
-// })
-
-
-/*
-Задача 4
-
-Дан масив const arr = [2, 44, 11, 234, 8, 2, 4, 1]
-
-Зробити новий масив, всі елементи якого = елемент зі старого масиву + 100
-*/
-
-const arr = [2, 44, 11, 234, 8, 2, 4, 1];
-const plus100 = arr.map((item) => {
-    return item + 100;
-});
-
-
-/*
-Задача 5
-
-На основі масиву об'єктів з задачі 3.
-Створити новий масив користувачів, об'єкти мають бути у такому вигляді:
-{
-    fullName: 'John Doe',
-    age: ....,
-    email: ...
+function t() {
+console.log(arguments);
+console.log(arguments.length);
 }
 
-Тобто потрібно якось перетворити два поля name та lastName у одне поле - fullName
+console.log(t);
+console.dir(t); // консолить об'єкт з його властивостями та методами
+
+t(1,2,3,4,5);
+
+/* function sum(a, b) {
+    const arrayArgs = Array.from(arguments);
+    console.log(arrayArgs);
+    return a + b;
+} */
+
+/*
+Напишіть функцію, яка повертає суму БУДЬ-ЯКОЇ кількості переданих їй аргументів
+
+sum(2,3) // 5
+sum(4, 7, 2, 1) // 14
 */
 
-function newUserObject(user) {
-    return {
-        fullName: `${user.name} ${user.lastName}`,
-        age: user.age,
-        email: user.email
+function sum() {
+    const arrayArgs = Array.from(arguments); // нормальний масив з об'єкту arguments
+
+    let sum = 0;
+    for(let i = 0; i < arrayArgs.length; i++) {
+        sum += arrayArgs[i];
     }
+    return sum;
 }
 
-const newUsersArray = users.map(newUserObject);
+console.log(sum(2, 6, 23, 65, 123, 3432));
+console.log(sum(1,2,3));
+console.log(sum(1,2,3,4,5));
