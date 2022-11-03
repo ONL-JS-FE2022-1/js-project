@@ -42,3 +42,32 @@ arr.push(3,2,1,3,4,5555,2,1);
 
 #arguments
 */
+
+
+
+
+
+
+const cat = {
+    name: 'Barsik',
+    color: 'red',
+    age: 1
+};
+
+const cat2 = {
+    name: 'Murzik',
+    color: 'black',
+    age: 5
+};
+
+const catMethods = {
+    run: function() {
+        console.log('Cat is running!');
+    },
+    meow: function() {
+        console.log('Meow!');
+    }
+}
+
+cat.__proto__ = catMethods;
+cat2.__proto__ = catMethods;
