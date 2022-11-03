@@ -1,26 +1,40 @@
-function MyArray() { // функція-конструктор масивів
-    this.length = 0;
+/*
+LADDER
+
+Задача: створити функцію-конструктор для сходів
+Об'єкт має властивість
+currentStair // сходинка, на якій ми зараз знаходимось. Початково = 0
+
+Має методи:
+up() - піднімає на сходинку вище
+down() - опускає на сходинку нижче
+showStair() - показує, на якій сходинці ми зараз знаходимось
+*/
+
+function Ladder() { // функция-конструктор
+    this.currentStair = 0;
 }
 
-function myProtoArray() {
-    this.push = function() {
-        for(let i = 0; i < arguments.length; i++) {
-            this[this.length] = arguments[i];
-            this.length++;
-        }
-        return this.length;
-    },
-    this.pop = function() {
-        if(this.length > 0) {
-            let lastItem = this[this.length - 1];
-            delete this[this.length - 1];
-            this.length--;
-            return lastItem;
-        }
+function LadderProto() { // функция-конструктор
+    this.up = function() {
+        console.log('up')
+        this.currentStair++;
+        return this;
+    }
+
+    this.down = function() {
+        console.log('down')
+        this.currentStair--;
+        return this;
+    }
+
+    this.showStair = function() {
+        console.log('currentStair')
+        return this.currentStair;
     }
 }
 
-MyArray.prototype = new myProtoArray;
+Ladder.prototype = new LadderProto();
 
-
-const arr = new MyArray();
+const ladder = new Ladder();
+// ladder.up().up().down().up().showStair();
