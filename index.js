@@ -1,32 +1,17 @@
 'use strict';
 
-function sum(a, b) {
-    return a + b;
+// rest operator - ...
+// .., ..., .., .., -> []
+
+function sum(a,b, ...arrayOfRestArguments) {
+    console.log(arrayOfRestArguments);
+    return a+b;
 }
 
-const arrow = (a, b) => a + b; // a + b === {return a+b}
+sum(3,4); // 7
+sum(1,2,34,5);
+sum(1,2,3,4,5,67,6); // 3
 
-const pow = x => x ** 2; // якщо 1 аргумент, то () можна опустити
+const arrowSum = (...restArray) => restArray.reduce((accum, current) => accum+current);
 
-const SuperFunc = () => {
-    this.value = 'hello!';
-}
-
-const t1 = function() {
-    console.log(arguments);
-}
-
-const t2 = () => {
-    console.log(arguments); // Arrow Function не має arguments
-}
-
-///////
-
-/*
-
-1. Стрілочна функція не має власного контексту (її this буде вказувати на середовище її виконання)
-2. Стрілочна функція не може бути функцією-конструктором
-3. Стрілочна функція не має колекції arguments
-
-*/
-
+console.log(arrowSum(5,5,5,5));
