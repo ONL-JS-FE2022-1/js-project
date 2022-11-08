@@ -1,53 +1,13 @@
-// Recursion
+// JSDoc
 
-// pow(x, n); 
-// pow(2, 2); 4
-// pow(2, 4); 16
-// pow(2, 3); === 2 * 2 * 2 = 8
-
-// Ітераційний підхід (ітераційне мислення)
-// function pow(x, n) {
-//     let result = 1;
-
-//     // множимо result на x n разів в циклі
-//     for(let i = 0; i < n; i++) {
-//         result *= x;
-//     }
-
-//     return result;
-// }
-
-// console.log(pow(3, 4)); // 81
-
-// Рекурсивний підхід (рекурсивне мислення)
+/**
+ * повертає x у n-й степені
+ * @param {number} x число, що треба піднести до степеня
+ * @param {number} n степінь, повинна бути натуральним числом
+ * @return {number} x піднесене у n-нну степінь
+ */
 function pow(x, n) {
-    if(n === 1) {
-        return x;
-    } else {
-        return x * pow(x, n - 1);
-    }
+    // тут будет код
 }
-console.log(pow(2, 4)); // 81
 
-/*
-                   if n===1  = x
-             /
-pow(x, n) = 
-             \
-                   else      = x * pow(x, n - 1) 
-*/
-
-// x^n = x * x^(n-1)
-
-/*
-Задача - знайти факторіал числа (рекурсивний підхід)
-5! = 1*2*3*4*5 = (1*2*3*4) * 5
-*/
-
-function factorial(number) {
-    if(number === 1 || number === 0) {
-        return 1;
-    }
-
-    return number * factorial(number-1);
-}
+pow();
