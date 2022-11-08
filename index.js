@@ -70,6 +70,12 @@ Papa - не паліднром
 Namman - паліндром
 */
 
+function palindrom(str) {
+    return str.toLowerCase().split('').reverse().join('') === str.toLowerCase();
+}
+
+console.log(palindrom('NaMmAN'));
+
 
 
 /*
@@ -81,3 +87,12 @@ Namman - паліндром
 Голосні: ['a', 'e', 'i', 'o', 'u'];
 
 */
+
+function countVowels(str) {
+    const array = str.toLowerCase().split('');
+    const vowelsArray = ['a', 'e', 'i', 'o', 'u'];
+    const resultArray = array.filter((letter) => vowelsArray.includes(letter));
+    return resultArray.length;
+}
+
+console.log(countVowels('innocent'));
