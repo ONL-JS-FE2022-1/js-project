@@ -1,13 +1,32 @@
-// JSDoc
+// Exceptions
 
 /**
- * повертає x у n-й степені
- * @param {number} x число, що треба піднести до степеня
- * @param {number} n степінь, повинна бути натуральним числом
- * @return {number} x піднесене у n-нну степінь
+ * 
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number} Sum of a and b
+ * @throws {RangeError} If a or b not a positive number
+ * @throws {TypeError} If a or b not a number
  */
-function pow(x, n) {
-    // тут будет код
+function sumOfPositiveNumber(a, b) {
+    if(a < 0 || b < 0) {
+        // треба сповістити користувача, що число не підходить
+        const error = new RangeError('Число менше нуля!');
+        // throw <об'єкт помилки>
+        throw error; // return, тільки для помилок
+    }
+    if(typeof a !== 'number' || typeof b !== 'number') {
+        throw new TypeError('a && b мають бути числом!')
+    }
+
+    return a + b;
 }
 
-pow();
+try {
+    sumOfPositiveNumber(2, -2);
+    // щось робимо, очікуючи, що тут може виникнути помилка
+} catch(error) {
+    console.log(error.message);
+}
+
+console.log('Usual code flow');
