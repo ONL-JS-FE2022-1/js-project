@@ -39,4 +39,15 @@ pow(x, n) =
 
 // x^n = x * x^(n-1)
 
+/*
+Задача - знайти факторіал числа (рекурсивний підхід)
+5! = 1*2*3*4*5 = (1*2*3*4) * 5
+*/
 
+function factorial(number) {
+    if(number === 1 || number === 0) {
+        return 1;
+    }
+
+    return number * factorial(number-1);
+}
