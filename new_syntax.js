@@ -93,3 +93,35 @@ class Auto {
 
 const auto = new Auto('BMW', 2500, diesel, 15);
 const auto1 = new Auto('Lexus', 2500, a95, 1);
+
+/*
+Клас Friend
+У об'єкта є ім'я і кількість грошей, і друг
+У вас є якась сума грошей і у вашого друга також
+Завдання - порахувати спільну кількість грошей
+
+*/
+
+class Friend {
+    constructor(name, amount, friend) {
+        this.name = name;
+        this.amount = amount;
+        this.friend = friend;
+    }
+
+    getFullAmount() {
+        if(this.friend === null) {
+            return this.amount;
+        }
+        if(Array.isArray(this.friend)) {
+            return this.amount + this.friend.reduce((sum, friend) => sum + friend.getFullAmount(), 0);
+        }
+        return this.amount + this.friend.getFullAmount();
+    }
+}
+
+const friend1 = new Friend('Igor', 5, null);
+const friend2 = new Friend('Miroslav', 15, null);
+
+const myFriend = new Friend('Vlad', 20, [friend1, friend2]);
+const me = new Friend('Roman', 10, myFriend); // myFriend => [friend1, friend2]
