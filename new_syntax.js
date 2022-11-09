@@ -55,11 +55,41 @@ const wrkr = new Worker('John', 'Doe', 300, 12);
 const wrkr2 = new Worker('Jane', 'Doe');
 
 
-// Параметри за замовченням
+/*
+Задача: порахувати загальну вагу автомобіля
 
-function sum(a = 10, b = 5) {
-    console.log(a, b);
+Клас паливо
+Клас авто
+*/
+
+class Fuel {
+    constructor(volume, density) {
+        this.volume = volume; // об'єм
+        this.density = density; // щільність
+    }
+
+    getWeight() {
+        return this.volume * this.density;
+    }
 }
 
-sum(3, 2);
-sum();
+const diesel = new Fuel(50, 0.9);
+const a95 = new Fuel(99, 0.3);
+
+const MIDDLE_WEIGHT_PASSANGER = 80;
+class Auto {
+    constructor(name, ownWeight, fuel, passangers) {
+        this.name = name;
+        this.ownWeight = ownWeight;
+        this.fuel = fuel;
+        this.passangers = passangers;
+    }
+
+    // Написати метод, що обчислює повну вагу авто на основі його власної ваги + ваги палива
+    getFullWeight() {
+        return this.ownWeight + this.fuel.getWeight() + (this.passangers * MIDDLE_WEIGHT_PASSANGER);
+    }
+}
+
+const auto = new Auto('BMW', 2500, diesel, 15);
+const auto1 = new Auto('Lexus', 2500, a95, 1);
