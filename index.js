@@ -1,19 +1,55 @@
-class Test {
-    constructor(value1, value2) {
-        // create {} --> this
-        this.key1 = value1;
-        this.key2 = value2;
+/*
+Напишіть клас RangeValidator
+дві властивості:
+from, to
+
+from не може бути більше to
+
+Завдання:
+1. реалізувати сеттери для обох властивостей
+2. геттер getRange, який має повертати масив цілих чисел цього діапазону
+*/
+
+class RangeValidator {
+    constructor(from, to) {
+        this.to = to; // this._to
+        this.from = from;
     }
 
-    unStaticMethod() {
-        console.log('Я нестатичній метод, я буду работать для єкземпляров класса')
+    set from(value) {
+        if(typeof value !== 'number') {
+            throw new TypeError('From must be a number');
+        }
+        if(value > this._to) {
+            throw new RangeError('To must be a larger than from')
+        }
+        this._from = value;
     }
 
-    static staticMethod(value) {
-        console.log('Я статічній метод, я буду работать для всего класса вне зависимости от конкретного єкземпляра')
+    set to(value) {
+        if(typeof value !== 'number') {
+            throw new TypeError('To must be a number');
+        }
+        this._to = value;
     }
-}
 
-Test.newMethod = function (value) {
-    console.log('Статичний метод поза класом')
+    get to() {
+        return this._to;
+    }
+
+    get from() {
+        return this._from;
+    }
+
+    get getRange() {
+        const arr = [];
+        for(let i = this._from; i <= this._to; i++) {
+            arr.push(i);
+        }
+        return arr;
+    }
+
+    validate(num) {
+        return this.getRange.includes(num);
+    }
 }
