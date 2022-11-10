@@ -1,22 +1,40 @@
-class Animal {
-    constructor(color, name, tail) {
+class User {
+    constructor(name, surname, age) {
         this.name = name;
-        this.color = color;
-        this.tail = tail;
+        this.surname = surname;
+        this.age = age;
     }
 
-    eat() {
-        return `${this.name} is eating`
+    getFullName() {
+        return `${this.name} ${this.surname}`;
     }
 }
 
-// class Dog extends Animal - клас Dog розширює клас Animal (наслідує цей клас)
-class Dog extends Animal {
-    constructor(color, name, tail) {
-        super(color, name, tail);
+class Moderator extends User {
+    constructor(name, surname, age) {
+        super(name, surname, age);
     }
 
-    barking() {
-        return `${this.name} is barking`
+    createPost(header, text) {
+        console.log('Create post')
+    }
+
+    deletePost(index) {
+        console.log('Delete post')
+    }
+}
+
+class Admin extends Moderator {
+    constructor(name, surname, isAdmin) {
+        super(name, surname, null);
+        this.isAdmin = isAdmin;
+    }
+
+    setModerator() {
+        console.log('Set moderator')
+    }
+
+    deleteModerator() {
+        console.log('Delete moderator')
     }
 }
