@@ -66,3 +66,14 @@ class Square extends Figure {
 }
 
 // Написати аналогічний клас Circle, який буде мати метод для обчислення площі та буде інкапсулювати дані (аксессори)
+
+class Circle extends Figure {
+    constructor(r) {
+        super(1);
+        this.r = r;
+    }
+
+    getArea() {
+        return Math.PI * this.r * this.r;
+    }
+}
