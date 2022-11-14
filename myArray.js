@@ -39,10 +39,12 @@ class MyArray {
             callback(this[i], i, this);
         }
     }
+
+    map(callback) {
+        const newArr = new MyArray();
+        for(let i = 0; i < this.length; i++) {
+            newArr.push(callback(this[i], i, this));
+        }
+        return newArr;
+    }
 }
-
-/*
-Задача 2
-
-Реалізувати метод map для myArray
-*/
