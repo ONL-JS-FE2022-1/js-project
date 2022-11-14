@@ -1,77 +1,27 @@
-/*
+// primitives
+Boolean
+String
+Number
+BigInt
+null
+undefined
+Symbol
 
-Є ферма.
-На фермі в нас є свійські тварини (корови, кози).
-Є домашні тварини (кошки і собаки).
+const b1 = true; // false - boolean
+const b2 = new Boolean([]);
 
-В кожної тварини є діти. В кожного з дітей може бути певна кількість дітей.
+const str = 'hello';
+const str2 = new String('hello');
 
-Реалізувати класи всіх тварин і додати тваринам певну кількість дітей 
-(кількість дітей вказуєте у конструкторі під час стоврення єкземпляру об'єкту).
+// object
 
-Просунутий рівень (задача *****):
-Реалізувати функцію, яка підрахує кількість тварин на фермі.
+// Symbol
 
-*/
+const mySymbol = Symbol(); // без new!!!
+const symb2 = Symbol('My second symbol'); // label for human
 
-class Animal {
-    constructor() {
-        this.childs = null;
-    }
+const obj = {
+    test: 1,
+    [mySymbol]: 123,
+    abracadabra: '2123',
 }
-
-class Cat extends Animal {
-    constructor() {
-        super();
-    }
-}
-
-class Dog extends Animal {
-    constructor() {
-        super();
-    }
-}
-
-class Cow extends Animal {
-    constructor() {
-        super();
-    }
-}
-
-class Goat extends Animal {
-    constructor() {
-        super();
-    }
-}
-
-/**
- * Функція створення ферми
- * @param {Animal (or Cat, Dog, Cow, Goat)} Type 
- * @param {number} quantity 
- */
-
-function createFamily(Type, quantity) {
-    const animals = new Array(quantity).fill(new Type());
-    animals.forEach(animal => {
-        const childs = new Array(quantity).fill(new Type());
-        animal.childs = childs;
-    })
-    return animals;
-}
-
-/**
- * 
- * @param {Array of Animals} farm 
- */
-
-function countFarm(farm) {
-    return farm.reduce((accum, item) => {
-        if(item.childs) {
-            return accum + 1 + item.childs.length;
-        }
-    }, 0)
-}
-
-// const farm = [...createFamily(Cat, 3), ...createFamily(Dog, 2), ...createFamily(Cow, 5), ...createFamily(Goat, 1)];
-
-const farm = [...createFamily(Cat, 1), ...createFamily(Dog, 1)];
