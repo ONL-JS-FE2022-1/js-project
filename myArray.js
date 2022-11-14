@@ -47,4 +47,20 @@ class MyArray {
         }
         return newArr;
     }
+
+    unshift(...value) {
+        const temp = new MyArray();
+        temp.push(...value);    // 1 - пушим во временній то, что передали в unshift
+        this.length += value.length;
+        
+        for(let i = 0; i < this.length - 1; i++) {
+            temp.push(this[i]); // 2 - пушим во временній то, что и так до єтого находилось в основном массиве    
+        }
+
+        for(let i = 0; i < this.length; i++) {
+            this[i] = temp[i]; // 3 - перезаписіваем наш текущий массив
+        }
+
+        return this.length;
+    }
 }
