@@ -1,16 +1,31 @@
-function MyArray() { // функція-конструктор масивів
-    this.length = 0;
-}
+/*
+Задача 1
 
-function myProtoArray() {
-    this.push = function() {
+Переписати MyArray на класи
+https://github.com/ONL-JS-FE2022-1/js-project/blob/f0474e1a7928c3195801ff5dc46807576d39140b/myArray.js
+
+Якщо впораєтесь раніше, то спробуйте додати метод, який буде працювати аналогічно Array.isArray()
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+*/
+
+class MyArray {
+    constructor() {
+        this.length = 0;
+    }
+
+    static isMyArray(obj) {
+        return obj instanceof MyArray;
+    }
+
+    push() {
         for(let i = 0; i < arguments.length; i++) {
             this[this.length] = arguments[i];
             this.length++;
         }
         return this.length;
-    },
-    this.pop = function() {
+    }
+
+    pop() {
         if(this.length > 0) {
             let lastItem = this[this.length - 1];
             delete this[this.length - 1];
@@ -18,9 +33,16 @@ function myProtoArray() {
             return lastItem;
         }
     }
+
+    forEach(callback) {
+        for(let i = 0; i < this.length; i++) {
+            callback(this[i], i, this);
+        }
+    }
 }
 
-MyArray.prototype = new myProtoArray;
+/*
+Задача 2
 
-
-const arr = new MyArray();
+Реалізувати метод map для myArray
+*/
