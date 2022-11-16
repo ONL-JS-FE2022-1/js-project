@@ -80,15 +80,47 @@ const myStack = new Stack(4);
 Додатково (**): ігнорувати всі символи, крім дужок (щоб можна було крім дужок передавати ще щось, наприклад, числа)
 */
 
-function checkSequence(str) {
-    let res = 0;
-    for (const symbol of str) {
-        if(symbol === '(') {
-            res++;
+/**
+ * 
+ * @param {String} str - рядок, який аналізується
+ * @param {Object} options - об'єкт налаштувань, всередині якого ми очукуємо об'єкт braces
+ * @param {Object} options.braces - об'єкт з параметрами символів, які перевіряються
+ */
+
+function checkSequence(str, options) {
+    const stack = new Stack();
+    const braces = options.braces;
+    const closeBraces = Object.values(braces);
+    const arr = [...Object.keys(braces), ...Object.values(braces)]
+    const newStr = str.split(['']).filter((sym)=> arr.includes(sym)); // фільтрація рядка, яка прибирає все окрім дужок
+
+    for(const symbol of newStr) {
+        if(braces[symbol]) { // тоді це відкриваюча дужка
+            stack.push(symbol);
+            continue;
         }
-        if(symbol === ')') {
-            res--;
+        if(stack.isEmpty && closeBraces.includes(symbol)) {
+            return false;
+        }
+        const lastItemFromStack = stack.pick();
+        const correctCloseBrace = braces[lastItemFromStack];
+        if(correctCloseBrace === symbol) { // тоді це закриваюча дужка
+            stack.pop();
         }
     }
-    return res === 0;
+
+    return stack.isEmpty;
 }
+
+const options = {
+    braces: {
+        '(': ')',
+        '[': ']',
+        '{': '}',
+        '[': ']'
+    }
+}
+
+console.log(
+    checkSequence('(2+2)[3-1]2(*3[9/1])', options)
+);
