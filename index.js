@@ -29,3 +29,50 @@ function translater(str, options) {
 
     return translatedArray.join(separator);
 }
+
+/*
+
+Дано:
+
+const user = {
+    name: 'alex',
+    firstName: 'Doe',
+    id: 1
+}
+
+const user2 = {
+    name: 'john',
+    firstName: 'Doe',
+    id: 2
+}
+
+const johnMessages = ['hello!', 'how a u?'];
+const alexMessages = ['hi!', 'Im fine'];
+
+Задача:
+Зв'язати користувача і його повідомленняЮ щоб за юзером знайти його повідомлення
+*/
+
+const user = {
+    name: 'alex',
+    firstName: 'Doe',
+    id: 1
+}
+
+const user2 = {
+    name: 'john',
+    firstName: 'Doe',
+    id: 2
+}
+
+const johnMessages = ['hello!', 'how a u?'];
+const alexMessages = ['hi!', 'Im fine'];
+
+const messageMap = new Map();
+messageMap.set(user.id, alexMessages);
+messageMap.set(user2.id, johnMessages);
+
+function createMessage(userID, newMessage, messageMap) {
+    const userMessages = messageMap.get(userID);
+    userMessages.push(newMessage);
+}
