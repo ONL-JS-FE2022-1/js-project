@@ -18,15 +18,14 @@ vocalbuary.set('cat', 'кіт');
 vocalbuary.set('dog', 'собака');
 vocalbuary.set('eat', 'їсти');
 
-function translater(str, vocalbuary) {
-    const arrayWords = str.toLowerCase().trim().split(' ');
+function translater(str, options) {
+    const vocalbuary = options.vocalbuary;
+    const separator = options.separator;
 
-    const translatedArray = arrayWords.map((word) => {
-        if(vocalbuary.has(word)) {
-            return vocalbuary.get(word);
-        }
-        return word;
-    })
 
-    return translatedArray.join(' ');
+    const arrayWords = str.toLowerCase().trim().split(separator);
+
+    const translatedArray = arrayWords.map((word) => vocalbuary.has(word) ? vocalbuary.get(word) : word);
+
+    return translatedArray.join(separator);
 }
