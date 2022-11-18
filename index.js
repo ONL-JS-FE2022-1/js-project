@@ -3,11 +3,11 @@
 const monitor = {
     sizes: {
         width: {
-            value: 30,
+            value: 5,
             scale: 'cm'
         },
         height: {
-            value: 60,
+            value: 5,
             scale: 'cm'
         }
     },
@@ -32,6 +32,98 @@ const {sizes: {height: {value: heightValue}, width: {value: widthValue}}} = moni
 // heightValue, widthValue - звичайні змінні
 
 const {color, brightness, resolution, ...restOfMonitor} = monitor;
+
+const userObj = {
+    name: {
+        first: 'John',
+        last: 'Doe'
+    },
+    adress: {
+        city: 'Dnipro',
+        street: 'Frunze'
+    },
+    auth: {
+        login: 'johndoe@gmail.com',
+        pass: '#hash'
+    },
+    favorites: {
+        dish: {
+            eat: 'sandwich',
+            drink: 'black tea with lemon'
+        }
+    }
+}
+
+/*
+1.Витягти з об'єкта ім'я юзера і перейменувати його на firstName.
+2.Витягти улюблений напій і переменувати його на favoriteDrink.
+3.Витягти логін і перейменувати email
+*/
+
+const {
+    name: {
+        first: firstName
+    },
+    auth: {
+        login: email
+    },
+    favorites: {
+        dish: {
+            drink: favoriteDrink
+        }
+    },
+    ...restOfObj
+} = userObj;
+
+
+/* Деструктуризація масивів */
+
+const arr = [1, 2, 3, 4, 5, 6];
+
+const [first, second, ...restOfArr] = arr;
+
+/* Деструктуризація вхідних параметрів */
+
+function getFullName({firstName, lastName, ...rest}) { // всі інше, окрім firstName, lastName ігнорується
+    console.log(rest);
+    return `${firstName} ${lastName}`;
+}
+
+
+/*
+Написати функцію, яка приймає об'єкт монітора, виймає з нього розміри 
+висоти і ширини і на їх основі повертає розмір діагоналі
+*/
+
+
+function getDiagonal({
+    sizes: {
+        height: {
+            value: a
+        },
+        width: {
+            value: b
+        }
+    }
+}) {
+    return Math.sqrt(a**2 + b**2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
