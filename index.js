@@ -37,3 +37,52 @@ function makeCounter2() {
 }
 
 const fnObj = makeCounter2();
+
+
+function rememberParametr(arg) {
+    return function() {
+        return arg;
+    }
+}
+
+/*
+Написати функцію, яка приймає параметр і повертає іншу функцію, 
+що очікує другий параметр і повертає суму двох параметрів
+*/
+
+function createAdder(n) {
+    return function(m) {
+        return n = m + n;
+    }
+}
+
+/*
+Створіть функцію isCorrectPassword, яка буде приймати правильний пароль і яка буде повертати внутрішню функцію, 
+яка приймає введену строку (також пароль) та повертає логічне значення true, 
+якщо введена строка співпадає з паролем, false - якщо ні.
+*/
+
+function isCorrectPassword(password) {
+    return function(checkedPassword) {
+        return checkedPassword === password;
+    }
+}
+
+////////////// URL ///////////
+// protocol - https / http
+// - ://
+// hostName - developer.mozilla.org
+// path - ua/docs/Web
+
+const createURL = function(protocol) {
+    return function(hostName) {
+        return function (path) {
+            return `${protocol}://${hostName}/${path}`;
+        }
+    }
+}
+
+const rememberHost = createURL('http');
+    const site1 = rememberHost('test.org');
+    const site2 = rememberHost('site.com');
+    const site3 = rememberHost('wiki.org');
